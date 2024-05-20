@@ -7,12 +7,11 @@ from components.streamlit_footer import footer
 from config.model_config import QA_Config
 from models.qa_model import get_model
 
-qa_model = get_model(QA_Config.model_id)
 EXAMPLE_QUESTION = 'Where is the highest mountain in solar system located?'
 EXAMPLE_CONTEXT = 'The highest mountain and volcano in the Solar System is on the planet Mars. It is called Olympus Mons and is 16 miles (24 kilometers) high which makes it about three times higher than Mt. Everest.'
 
-@st.cache_data(max_entries=1000)
 def get_answer(question, context):
+    qa_model = get_model(QA_Config.model_id)
     result_dict = qa_model(question, context)
     start_ans_idx = result_dict['start']
     end_ans_idx = result_dict['end']
