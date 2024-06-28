@@ -3,6 +3,7 @@ __MACOSX
 
 __pycache__
 ./images
+./embeddings.db
 
 *.pt
 *.onnx
